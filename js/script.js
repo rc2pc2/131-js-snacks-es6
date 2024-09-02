@@ -1,75 +1,75 @@
+// # Creare un array di oggetti di squadre di calcio.
+// # Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
+// # Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
+// # Generare numeri random al posto degli 0 nelle proprietà: punti fatti e falli subiti.
+// # Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
 
-// # *SNACK 3*
-// # Creare un array di oggetti:
-// # Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso.
-// # Stampare in console la bici con peso minore utilizzando destructuring e template literal
-
-
-// % Creiamo un array di oggetti e lo denominiamo bikes
-const bikes = [
+// % Creiamo un array di oggetti squadre teams
+const teams = [
     {
-        name: "Orbena Super Toro",
-        weight: 7000
+        nome: "Fortitudo San Cesareo",
+        puntiFatti: 0,
+        falliSubiti : 0
     },
     {
-        name: "Atalina Super Tre",
-        weight: 9000
+        nome: "Leoni Milano",
+        puntiFatti: 0,
+        falliSubiti : 0
     },
     {
-        name: "Atalina Super Micio",
-        weight: 8000
+        nome: "Vesuvi Pompei",
+        puntiFatti: 0,
+        falliSubiti : 0
     },
     {
-        name: "Grand Canion Corridrice",
-        weight: 6900
+        nome: "Anguille Ancona",
+        puntiFatti: 0,
+        falliSubiti : 0
     },
     {
-        name: "BMT Sotto Vento",
-        weight: 7800
+        nome: "Aquile Parma",
+        puntiFatti: 0,
+        falliSubiti : 0
     },
     {
-        name: "BMT Sopra Vento",
-        weight: 11800
+        nome: "Squali Bari",
+        puntiFatti: 0,
+        falliSubiti : 0
     },
     {
-        name: "BMT Soprissima Vento",
-        weight: 10800
+        nome: "Trattori Catania",
+        puntiFatti: 0,
+        falliSubiti : 0
     },
     {
-        name: "BMT Superleggera",
-        weight: 5500
-    }
+        nome: "Falchi Cagliari",
+        puntiFatti: 0,
+        falliSubiti : 0
+    },
 ];
 
-// # preparo una variabile a cui assegno la prima bici per poter inserire dall'interno del ciclo la mia bici piu' leggera
-let lightestBike = bikes[0];
+// % Creo una funzione per generare numeri randomici
+function getRandomInteger(min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-// % Scorriamo gli elementi dell'array dal secondo elemento
-// for (let index = 0; index < bikes.length; index++) {
-//     const element = bikes[index];
-// }
-// bikes.forEach(( element ) => {
-//     // % se l'elemento attuale pesa meno di quello salvato nella variabile
-//     if (element.weight < lightestBike.weight){
-//         // % se si => lo sovrascrivo
-//         lightestBike = element;
-//     }
-// });
+// console.log(teams);
 
-bikes.forEach(( element ) => {
-    const { weight } = element; 
-    const { weight : lightestWeight } = lightestBike; 
-    console.log(weight, lightestWeight);
-    if ( weight < lightestWeight){
-        console.warn(`Scambio ${lightestWeight} con il nuovo peso piu' leggero, che e': ${weight}` );
-        lightestBike = element;
-    }
+// % La uso per popolare le proprieta' mancanti
+for (let index = 0; index < teams.length; index++) {
+    const team = teams[index];
+    team.falliSubiti = getRandomInteger(10, 50);
+    team.puntiFatti = getRandomInteger(20, 120);
+}
+
+console.log(teams);
+
+// % Destrutturiamo e mostriamo in console
+const newTeams = teams.map(( element ) => {
+    const { nome, falliSubiti } = element;
+    return { nome, falliSubiti };
 });
 
-const { name, weight} = lightestBike;
-console.log(`La bicicletta piu' leggera e': 
-    ${name}, 
-    che pesa ${weight}`);
+console.log(newTeams);
 
-// # per poter avere una bici selezionata
 
