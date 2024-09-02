@@ -79,7 +79,7 @@ bikes.forEach(( element ) => {
 });
 
 // ! USO SCONSIGLIATO
-// const lightestBike = bikes.reduce((lightest, element) => (element.weight < lightest.weight) ? element : lightest, bikes[0]); 
+// const lightestBike = bikes.reduce((lightest, element) => (element.weight < lightest.weight) ? element : lightest); 
 
 const { name, weight} = lightestBike;
 console.log(`La bicicletta piu' leggera e': 
