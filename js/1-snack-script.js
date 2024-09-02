@@ -38,6 +38,18 @@ const bikes = [
     {
         name: "BMT Superleggera",
         weight: 5500
+    },
+    {
+        name: "BMT Superleggera",
+        weight: 5500
+    },
+    {
+        name: "BMT Superleggera",
+        weight: 4300
+    },
+    {
+        name: "BMT Superleggera",
+        weight: 5500
     }
 ];
 
@@ -65,6 +77,9 @@ bikes.forEach(( element ) => {
         lightestBike = element;
     }
 });
+
+// ! USO SCONSIGLIATO
+// const lightestBike = bikes.reduce((lightest, element) => (element.weight < lightest.weight) ? element : lightest, bikes[0]); 
 
 const { name, weight} = lightestBike;
 console.log(`La bicicletta piu' leggera e': 
